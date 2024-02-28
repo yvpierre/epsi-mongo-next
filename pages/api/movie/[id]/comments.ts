@@ -11,13 +11,13 @@ export default async function handler(req:any, res:any) {
     try {
         switch(req.method){
             case "GET":
-                const comments = await db.collection("comments").find({movie_id: id}).limit(10).toArray();
+                const comments = await db.collection("comments").find({movie_id: new ObjectId(id)}).toArray();
                 console.log(id)
                 res.json({ status: 200, data: comments });
                 break;
             case "POST":
                 const params = req.body;
-                params.movie_id = new ObjectId(params.movie_id)
+                params.movie_id = new ObjectId(id)
                 const result = await db.collection("comments").insertOne(params);
                 res.json({ status: 200, data: result });
                 break;
