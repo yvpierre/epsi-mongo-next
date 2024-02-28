@@ -1,6 +1,8 @@
 // pages/api/movie/[id].js
 import clientPromise from "../../../lib/mongodb";
 import { Db, MongoClient, ObjectId } from "mongodb";
+import {OrmService} from "../../../services/OrmService";
+import {MongoConfigService} from "../../../services/MongoConfigService";
 
 export default async function handler(req: any, res: any) {
     const { id } = req.query;
@@ -11,9 +13,8 @@ export default async function handler(req: any, res: any) {
     try {
         switch(req.method){
             case "GET":
-                const dbMovie = await db.collection("movies").findOne({ _id: new ObjectId(id) });
-                console.log(id);
-                res.json({ status: 200, data: { movie: dbMovie } });
+                const movie = await OrmService.connectAndFindOne(MongoConfigService.collection.movies, id);
+                res.json({ status: 200, data: { movie: movie } });
                 break;
             case "PUT":
                 const params = req.body.movie;
