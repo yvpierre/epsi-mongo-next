@@ -2,6 +2,92 @@
 import clientPromise from "../../../../../lib/mongodb";
 import { Db, MongoClient, ObjectId } from "mongodb";
 
+/**
+ * @swagger
+ * /api/movies/{id}/comments/{idComment}:
+ *  get:
+ *      description: Get a comment by ID for a movie
+ *      parameters:
+ *        - in: path
+ *          name: id
+ *          required: true
+ *          description: ID of the movie
+ *          schema:
+ *              type: string
+ *        - in: path
+ *          name: idComment
+ *          required: true
+ *          description: ID of the comment
+ *          schema:
+ *              type: string
+ *      responses:
+ *          200:
+ *              description: Success
+ *          404:
+ *              description: Comment not found
+ *          500:
+ *              description: Internal Server Error
+ *
+ *  put:
+ *      description: Update a comment by ID for a movie
+ *      parameters:
+ *        - in: path
+ *          name: id
+ *          required: true
+ *          description: ID of the movie
+ *          schema:
+ *              type: string
+ *        - in: path
+ *          name: idComment
+ *          required: true
+ *          description: ID of the comment
+ *          schema:
+ *              type: string
+ *      requestBody:
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      type: object
+ *                      properties:
+ *                          user:
+ *                              type: string
+ *                          comment:
+ *                              type: string
+ *                      example:
+ *                          user: John Doe
+ *                          comment: This movie is amazing!
+ *      responses:
+ *          200:
+ *              description: Comment updated successfully
+ *          404:
+ *              description: Comment not found
+ *          500:
+ *              description: Internal Server Error
+ *
+ *  delete:
+ *      description: Delete a comment by ID for a movie
+ *      parameters:
+ *        - in: path
+ *          name: id
+ *          required: true
+ *          description: ID of the movie
+ *          schema:
+ *              type: string
+ *        - in: path
+ *          name: idComment
+ *          required: true
+ *          description: ID of the comment
+ *          schema:
+ *              type: string
+ *      responses:
+ *          200:
+ *              description: Comment deleted successfully
+ *          404:
+ *              description: Comment not found
+ *          500:
+ *              description: Internal Server Error
+ */
 export default async function handler(req: any, res: any) {
     const { idComment } = req.query;
 

@@ -37,8 +37,10 @@ export default function Home({
       <main>
           <div className={"header"}>
               <h1 className="title">
-                  EPSI<br/>Movies
+                  API<br/>Movies
               </h1>
+              <p>- Movies are filtered to only propose those over 8.5 on IMDb and with at least one director.<br/>- Movies fetched via API, app built with Next and Mongo</p>
+              <p>By Pierre Yvenou, 2024</p>
           </div>
           <MoviesList/>
 

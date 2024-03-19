@@ -7,6 +7,7 @@ interface Movie {
     title?: string;
     plot?: string;
     poster?: string;
+    rating?: string;
     directors?: Array<string>;
 }
 
@@ -18,18 +19,25 @@ const MovieCard = (selectedMovie:Movie) => {
     }
     return (
         <div className={"movieCard"}>
-            <Image
-                // @ts-ignore
-                src={selectedMovie.poster}
-                alt="Poster not found"
-                width={200}
-                height={300}
-            />
+            <div className="imageWrapper">
+                <Image
+                    // @ts-ignore
+                    src={selectedMovie.poster}
+                    alt="Poster not found"
+                    width={200}
+                    height={300}
+                />
+            </div>
             <div className={"movieCard--body"}>
                 <h2 className={"movieCard--name"}>{selectedMovie.title}</h2>
-                {selectedMovie.directors ? (
-                    <p className={"movieCard--directors"}>By {selectedMovie.directors.join(', ')}</p>
-                ) : null}
+                <div className={"movieCard--infos"}>
+                    {selectedMovie.directors ? (
+                        <p className={"movieCard--directors"}>By {selectedMovie.directors.join(', ')}</p>
+                    ) : null}
+                    {selectedMovie.rating ? (
+                        <p className={"movieCard--note"}>{selectedMovie.rating}*</p>
+                    ) : null}
+                </div>
             </div>
         </div>
     );

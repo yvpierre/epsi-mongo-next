@@ -1,6 +1,58 @@
 // pages/api/movies.js
 import clientPromise from "../../../../lib/mongodb";
 import {Db, MongoClient, ObjectId} from "mongodb";
+
+/**
+ * @swagger
+ * /api/movies/{id}/comments:
+ *  get:
+ *      description: Get comments for a movie by ID
+ *      parameters:
+ *        - in: path
+ *          name: id
+ *          required: true
+ *          description: ID of the movie
+ *          schema:
+ *              type: string
+ *      responses:
+ *          200:
+ *              description: Success
+ *          404:
+ *              description: Comments not found
+ *          500:
+ *              description: Internal Server Error
+ *
+ *  post:
+ *      description: Add a comment for a movie by ID
+ *      parameters:
+ *        - in: path
+ *          name: id
+ *          required: true
+ *          description: ID of the movie
+ *          schema:
+ *              type: string
+ *      requestBody:
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      type: object
+ *                      properties:
+ *                          user:
+ *                              type: string
+ *                          comment:
+ *                              type: string
+ *                      example:
+ *                          user: John Doe
+ *                          comment: This movie is amazing!
+ *      responses:
+ *          200:
+ *              description: Comment added successfully
+ *          404:
+ *              description: Movie not found
+ *          500:
+ *              description: Internal Server Error
+ */
 export default async function handler(req:any, res:any) {
     const { id } = req.query;
 

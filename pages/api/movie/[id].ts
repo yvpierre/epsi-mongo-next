@@ -4,6 +4,78 @@ import { Db, MongoClient, ObjectId } from "mongodb";
 import {OrmService} from "../../../services/OrmService";
 import {MongoConfigService} from "../../../services/MongoConfigService";
 
+/**
+ * @swagger
+ * /api/movies/{id}:
+ *  get:
+ *      description: Get a movie by ID
+ *      parameters:
+ *        - in: path
+ *          name: id
+ *          required: true
+ *          description: ID of the movie
+ *          schema:
+ *              type: string
+ *      responses:
+ *          200:
+ *              description: Success
+ *          404:
+ *              description: Movie not found
+ *          500:
+ *              description: Internal Server Error
+ *
+ *  put:
+ *      description: Update a movie by ID
+ *      parameters:
+ *        - in: path
+ *          name: id
+ *          required: true
+ *          description: ID of the movie
+ *          schema:
+ *              type: string
+ *      requestBody:
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      type: object
+ *                      properties:
+ *                          title:
+ *                              type: string
+ *                          director:
+ *                              type: string
+ *                          year:
+ *                              type: integer
+ *                      example:
+ *                          title: Updated Movie
+ *                          director: Jane Doe
+ *                          year: 2025
+ *      responses:
+ *          200:
+ *              description: Movie updated successfully
+ *          404:
+ *              description: Movie not found
+ *          500:
+ *              description: Internal Server Error
+ *
+ *  delete:
+ *      description: Delete a movie by ID
+ *      parameters:
+ *        - in: path
+ *          name: id
+ *          required: true
+ *          description: ID of the movie
+ *          schema:
+ *              type: string
+ *      responses:
+ *          200:
+ *              description: Movie deleted successfully
+ *          404:
+ *              description: Movie not found
+ *          500:
+ *              description: Internal Server Error
+ */
+
 export default async function handler(req: any, res: any) {
     const { id } = req.query;
 

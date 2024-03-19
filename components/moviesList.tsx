@@ -6,6 +6,7 @@ interface Movie {
     _id: string;
     title?: string;
     plot?: string;
+    note?: string;
     poster?: string;
     directors?: Array<string>;
 }
@@ -34,7 +35,7 @@ const MoviesList = () => {
         <div className={"movieList"}>
             {onlyPhoto.length ? (
                 onlyPhoto.map((movie) => (
-                    <MovieCard key={movie._id} _id={movie._id} poster={movie.poster} directors={movie.directors} title={movie.title}/>
+                    <MovieCard key={movie._id} _id={movie._id} poster={movie.poster} directors={movie.directors} rating={movie.imdb.rating} title={movie.title}/>
                 ))
             ) : (
                 <div>
