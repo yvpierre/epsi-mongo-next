@@ -7,7 +7,7 @@ main {
   padding: 10px;
   width: 100%;
   cursor: none;
-  filter: grayscale(100%);
+  // filter: grayscale(100%);
 }
 
 .big{
@@ -38,7 +38,7 @@ main {
   width: 80%;
   h1 {
     font-size: 120px;
-    font-weight: 600;
+    font-weight: 800;
     margin: 0;
   }
 
@@ -102,5 +102,68 @@ main {
       font-weight: 400;
     }
   }
+}
 
+footer {
+  background: rgba(0, 0, 0, 0.5);
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  height: 60px;
+  left: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+
+  .title {
+    font-size: 18px;
+    font-weight: 800;
+  }
+
+  .btns {
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+
+    .register {
+        border: 1px solid rgba(79, 79, 79, 0.3);
+
+        &:hover {
+        border: 1px solid white;
+        }
+    }
+
+    .login {
+      background: white;
+        color: black;
+
+      &:hover {
+        cursor: pointer
+      }
+    }
+
+
+    div {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      width: 80px;
+      height: 35px;
+      border-radius: 5px;
+
+    }
+  }
 }

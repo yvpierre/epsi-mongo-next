@@ -35,6 +35,7 @@ const MoviesList = () => {
         <div className={"movieList"}>
             {onlyPhoto.length ? (
                 onlyPhoto.map((movie) => (
+                    // @ts-ignore
                     <MovieCard key={movie._id} _id={movie._id} poster={movie.poster} directors={movie.directors} rating={movie.imdb.rating} title={movie.title}/>
                 ))
             ) : (
