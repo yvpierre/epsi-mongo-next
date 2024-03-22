@@ -44,7 +44,10 @@ export default function Home({
                   API<br/>Movies
               </h1>
               <p>- Movies are filtered to only propose those over 8.5 on IMDb and with at least one director.<br/>- Movies fetched via API, app built with Next and Mongo</p>
+              <p>To Be Done: Add a form to proceed CRUD on a list item (route already existing), auth (register and login btns not working rn) </p>
+                <p>API Documentation available <a href="/swagger">here</a></p>
               <p>By Pierre Yvenou, 2024</p>
+
           </div>
           <MoviesList/>
 
